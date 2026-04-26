@@ -1,10 +1,281 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Flow Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senior Product Designer Portfolio</title>
+  <meta name="description" content="High-end portfolio of a senior product designer showcasing UX case studies, product thinking, and system design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#121a27;
+      --text:#e6edf3;
+      --muted:#9aa4b2;
+      --border:rgba(255,255,255,0.08);
+      --accent:#6ee7ff;
+      --accent2:#a78bfa;
+    }
+
+    [data-theme="light"]{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:rgba(0,0,0,0.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui;}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      transition:0.3s;
+    }
+
+    a{text-decoration:none;color:inherit;}
+
+    .container{max-width:1100px;margin:0 auto;padding:24px;}
+
+    /* NAV */
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{font-weight:700;}
+
+    .nav-links a{margin-left:18px;color:var(--muted);font-size:14px;}
+    .nav-links a:hover{color:var(--text);}
+
+    .toggle{
+      border:1px solid var(--border);
+      padding:6px 10px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:12px;
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:1.3fr 0.7fr;
+      gap:40px;
+      padding:70px 0;
+      align-items:center;
+    }
+
+    h1{
+      font-size:52px;
+      line-height:1.1;
+      margin-bottom:16px;
+      animation:fadeUp 0.8s ease;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      line-height:1.7;
+      max-width:520px;
+    }
+
+    .badge{
+      display:inline-block;
+      border:1px solid var(--border);
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .cta{margin-top:20px;display:flex;gap:10px;}
+
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      font-size:14px;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border:none;
+      color:#0b0f17;
+      font-weight:600;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+      transition:0.25s;
+    }
+
+    .card:hover{transform:translateY(-6px);}
+
+    .hero-card .stat{
+      display:flex;
+      justify-content:space-between;
+      padding:8px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* SECTIONS */
+    .section{padding:60px 0;}
+
+    h2{margin-bottom:20px;font-size:22px;}
+
+    /* PROJECTS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .tag{font-size:12px;color:var(--muted);}
+
+    .card h3{margin:8px 0;}
+
+    .card p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+    /* CASE STUDY MODAL */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+      display:none;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-content{
+      background:var(--card);
+      padding:24px;
+      max-width:600px;
+      border-radius:16px;
+      border:1px solid var(--border);
+    }
+
+    .close{cursor:pointer;float:right;color:var(--muted);}
+
+    /* ANIMATIONS */
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(10px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr;}
+      h1{font-size:36px;}
+    }
+  </style>
 </head>
 <body>
-  <h1>Flow Project</h1>
-  <p>Google Drive based transport tool.</p>
+
+<div class="container">
+
+  <div class="nav">
+    <div class="logo">Abolfazl</div>
+    <div class="nav-links">
+      <a href="#projects">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <span class="toggle" onclick="toggleTheme()">Theme</span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div>
+      <div class="badge">Senior Product Designer</div>
+      <h1>Designing world-class digital products with clarity and impact.</h1>
+      <p class="subtitle">I focus on UX strategy, scalable design systems, and high-impact product experiences for global companies.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View Case Studies</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="card hero-card">
+      <div class="stat"><span>Experience</span><strong>7+ yrs</strong></div>
+      <div class="stat"><span>Projects</span><strong>30+</strong></div>
+      <div class="stat"><span>Focus</span><strong>UX / Systems</strong></div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Selected Case Studies</h2>
+    <div class="grid">
+
+      <div class="card" onclick="openModal('Banking App')">
+        <div class="tag">Fintech</div>
+        <h3>Mobile Banking Redesign</h3>
+        <p>+38% onboarding conversion through simplified flows.</p>
+      </div>
+
+      <div class="card" onclick="openModal('Analytics Platform')">
+        <div class="tag">SaaS</div>
+        <h3>Analytics Dashboard</h3>
+        <p>Designed scalable enterprise data visualization system.</p>
+      </div>
+
+      <div class="card" onclick="openModal('E-commerce UX')">
+        <div class="tag">Retail</div>
+        <h3>Checkout Optimization</h3>
+        <p>Reduced cart abandonment with UX restructuring.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="card">
+      <p><strong>Senior Product Designer</strong> — Global Tech (2022–Present)</p>
+      <p style="color:var(--muted)">Leading design systems & core product UX.</p>
+      <br>
+      <p><strong>Product Designer</strong> — Startup (2019–2022)</p>
+      <p style="color:var(--muted)">Focused on growth & onboarding optimization.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p class="subtitle">Open for full-time roles & collaborations.</p>
+    <p class="subtitle">hello@design.com</p>
+  </section>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✕</span>
+    <h3 id="modalTitle"></h3>
+    <p style="color:var(--muted);margin-top:10px;">Detailed case study coming soon. Here you can describe problem, process, solution and impact.</p>
+  </div>
+</div>
+
+<script>
+function toggleTheme(){
+  document.body.dataset.theme = document.body.dataset.theme === 'light' ? '' : 'light';
+}
+
+function openModal(title){
+  document.getElementById('modal').style.display='flex';
+  document.getElementById('modalTitle').innerText=title;
+}
+
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+}
+</script>
+
 </body>
 </html>
